@@ -4,7 +4,7 @@
  *
  * Provides methods useful for composing letters (mail).
  *
- * @version    1.0 (2017-05-06 22:11:00 GMT)
+ * @version    2.0 (2017-05-07 22:29:00 GMT)
  * @author     Peter Kahl <peter.kahl@colossalmind.com>
  * @since      2017
  * @license    Apache License, Version 2.0
@@ -26,6 +26,7 @@
 
 namespace peterkahl\LetterComposer;
 
+use peterkahl\CzechNameDeclension\CzechNameDeclension;
 use \Exception;
 
 class LetterComposer {
@@ -106,90 +107,90 @@ class LetterComposer {
     $lcName = mb_strtolower($this->recipientName);
     #----------------------------
     if ($this->lang == 'zh-hk') {
-      return '尊敬的'.        $this->recipientName.'：';
+      return '尊敬的'.         $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'zh-cn') {
-      return '尊敬的'.        $this->recipientName.'：';
+      return '尊敬的'.         $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'ja') {
-      return '拝啓'.          $this->recipientName.'：';
+      return '拝啓'.           $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'de') {
-      return 'Hallo '.        $this->recipientName.':';
+      return 'Hallo '.         $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'fr') {
-      return 'Salut '.        $this->recipientName.':';
+      return 'Salut '.         $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'es') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Estimado '. $this->recipientName.':';
+          return 'Estimado '.  $this->recipientName .':';
         case 'F':
-          return 'Estimada '. $this->recipientName.':';
+          return 'Estimada '.  $this->recipientName .':';
         default:
-          return 'Salud '.    $this->recipientName.':';
+          return 'Salud '.     $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'pt') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Estimado '. $this->recipientName.':';
+          return 'Estimado '.  $this->recipientName .':';
         case 'F':
-          return 'Estimada '. $this->recipientName.':';
+          return 'Estimada '.  $this->recipientName .':';
         default:
-          return 'Saúde '.    $this->recipientName.':';
+          return 'Saúde '.     $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'it') {
-      return 'Ciao '.         $this->recipientName.':';
+      return 'Ciao '.          $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'nl') {
-      return 'Geachte '.      $this->recipientName.':';
+      return 'Geachte '.       $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'ru') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Уважаемый '. $this->recipientName.':';
+          return 'Уважаемый '.  $this->recipientName .':';
         case 'F':
-          return 'Уважаемая '. $this->recipientName.':';
+          return 'Уважаемая '.  $this->recipientName .':';
         default:
-          return 'Привет, '.   $this->recipientName.':';
+          return 'Привет, '.    $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'cs') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Milý '.      $this->recipientName.':';
+          return 'Milý '.       CzechNameDeclension::getVocative($this->recipientName) .':';
         case 'F':
-          return 'Milá '.      $this->recipientName.':';
+          return 'Milá '.       CzechNameDeclension::getVocative($this->recipientName) .':';
         default:
-          return 'Dobrý den, '.$this->recipientName.':';
+          return 'Dobrý den, '. CzechNameDeclension::getVocative($this->recipientName) .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'sk') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Milý '.      $this->recipientName.':';
+          return 'Milý '.       $this->recipientName .':';
         case 'F':
-          return 'Milá '.      $this->recipientName.':';
+          return 'Milá '.       $this->recipientName .':';
         default:
-          return 'Dobrý den, '.$this->recipientName.':';
+          return 'Dobrý den, '. $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'en') {
-      return 'Dear '.          $this->recipientName.',';
+      return 'Dear '.           $this->recipientName.',';
     }
   }
 

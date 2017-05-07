@@ -2,7 +2,7 @@
     "name": "peterkahl/letter-composer-multilingual",
     "type": "library",
     "description": "Provides methods useful for composing letters (mail).",
-    "keywords": ["i18n", "multilingual", "multilingual-websites", "email"],
+    "keywords": ["i18n", "multilingual", "multilingual-mail", "email"],
     "homepage": "https://github.com/peterkahl/Letter-Composer-Multilingual",
     "license": "Apache License Version 2.0",
     "authors": [
