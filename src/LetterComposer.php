@@ -4,7 +4,7 @@
  *
  * Provides methods useful for composing letters (mail).
  *
- * @version    2.0 (2017-05-07 22:29:00 GMT)
+ * @version    3.0 (2017-05-07 22:29:00 GMT)
  * @author     Peter Kahl <peter.kahl@colossalmind.com>
  * @since      2017
  * @license    Apache License, Version 2.0
@@ -104,56 +104,67 @@ class LetterComposer {
   public function makeSalutation() {
     $this->ValidateLanguage();
     $this->recipientGender = strtoupper($this->recipientGender);
-    $lcName = mb_strtolower($this->recipientName);
     #----------------------------
     if ($this->lang == 'zh-hk') {
-      return '尊敬的'.         $this->recipientName .':';
+      return '尊敬的'.          $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'zh-cn') {
-      return '尊敬的'.         $this->recipientName .':';
+      return '尊敬的'.          $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'ja') {
-      return '拝啓'.           $this->recipientName .':';
+      return '拝啓'.            $this->recipientName .':';
+    }
+    #----------------------------
+    elseif ($this->lang == 'ar') {
+      return 'وعليكم السلام ورحمة الله وبركاته ومغفرته'. $this->recipientName;
+    }
+    #----------------------------
+    elseif ($this->lang == 'da') {
+      return 'Kære  '.          $this->recipientName .':';
+    }
+    #----------------------------
+    elseif ($this->lang == 'he') {
+      return ':'.               $this->recipientName .'היקרה';
     }
     #----------------------------
     elseif ($this->lang == 'de') {
-      return 'Hallo '.         $this->recipientName .':';
+      return 'Hallo '.          $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'fr') {
-      return 'Salut '.         $this->recipientName .':';
+      return 'Salut '.          $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'es') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Estimado '.  $this->recipientName .':';
+          return 'Estimado '.   $this->recipientName .':';
         case 'F':
-          return 'Estimada '.  $this->recipientName .':';
+          return 'Estimada '.   $this->recipientName .':';
         default:
-          return 'Salud '.     $this->recipientName .':';
+          return 'Salud '.      $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'pt') {
       switch ($this->recipientGender) {
         case 'M':
-          return 'Estimado '.  $this->recipientName .':';
+          return 'Estimado '.   $this->recipientName .':';
         case 'F':
-          return 'Estimada '.  $this->recipientName .':';
+          return 'Estimada '.   $this->recipientName .':';
         default:
-          return 'Saúde '.     $this->recipientName .':';
+          return 'Saúde '.      $this->recipientName .':';
       }
     }
     #----------------------------
     elseif ($this->lang == 'it') {
-      return 'Ciao '.          $this->recipientName .':';
+      return 'Ciao '.           $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'nl') {
-      return 'Geachte '.       $this->recipientName .':';
+      return 'Geachte '.        $this->recipientName .':';
     }
     #----------------------------
     elseif ($this->lang == 'ru') {
@@ -208,8 +219,17 @@ class LetterComposer {
     elseif ($this->lang == 'ja') {
       $str = '敬具，';
     }
-    elseif ($this->lang == 'de') {
+    elseif ($this->lang == 'ar') {
       $str = 'Mit Grüssen,';
+    }
+    elseif ($this->lang == 'ar') {
+      $str = 'تفضلوا بقبول فائق التحية والاحترام';
+    }
+    elseif ($this->lang == 'da') {
+      $str = 'Med venlig hilsen,';
+    }
+    elseif ($this->lang == 'he') {
+      $str = 'בִּבְרָכָה‏';
     }
     elseif ($this->lang == 'fr') {
       $str = 'Amicalement,';
@@ -255,6 +275,15 @@ class LetterComposer {
     elseif ($this->lang == 'ja') {
       $str = '敬具，';
     }
+    elseif ($this->lang == 'ar') {
+      $str = 'تفضلوا بقبول فائق التحية والاحترام';
+    }
+    elseif ($this->lang == 'da') {
+      $str = 'Med venlig hilsen,';
+    }
+    elseif ($this->lang == 'he') {
+      $str = 'בִּבְרָכָה‏';
+    }
     elseif ($this->lang == 'de') {
       $str = 'Mit Grüssen,';
     }
@@ -282,7 +311,7 @@ class LetterComposer {
     elseif ($this->lang == 'sk') {
       $str = 'S pozdravom,';
     }
-    elseif (substr($this->lang, 0, 2) == 'en') {
+    elseif ($this->lang == 'en') {
       $str = 'Best regards,';
     }
     return $str . '<br>' . $this->senderNameHtml;
