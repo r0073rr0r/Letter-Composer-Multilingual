@@ -12,8 +12,8 @@ If you intend to use Czech language, you will also need to install library [pete
 use peterkahl\LetterComposer\LetterComposer;
 
 $letterObj = new LetterComposer;
-$letterObj->senderNamePlain = 'Custome Service Representative'. PHP_EOL .'Famous Company, Ltd.';
-$letterObj->senderNameHtml  = 'Custome Service Representative<br>Famous Company, Ltd.';
+$letterObj->senderNamePlain = 'Customer Service Representative'. PHP_EOL .'Famous Company, Ltd.';
+$letterObj->senderNameHtml  = 'Customer Service Representative<br>Famous Company, Ltd.';
 
 # Example, Russian
 $letterObj->lang            = 'ru';
@@ -26,7 +26,7 @@ echo $letterObj->$letterObj->makeSalutation() . PHP_EOL . PHP_EOL . 'Это ва
 Это ваш новый пароль.
 
 С уважением,
-Custome Service Representative
+Customer Service Representative
 Famous Company, Ltd.'
 */
 
@@ -41,7 +41,7 @@ echo $letterObj->$letterObj->makeSalutation() . PHP_EOL . PHP_EOL . 'Zde je Vaš
 Zde je Vaše nové heslo.
 
 S pozdravem,
-Custome Service Representative
+Customer Service Representative
 Famous Company, Ltd.'
 */
 ```
