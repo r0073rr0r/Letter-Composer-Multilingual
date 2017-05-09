@@ -4,7 +4,7 @@
  *
  * Provides methods useful for composing letters (mail).
  *
- * @version    3.0 (2017-05-07 22:29:00 GMT)
+ * @version    3.2 (2017-05-09 02:15:00 GMT)
  * @author     Peter Kahl <peter.kahl@colossalmind.com>
  * @since      2017
  * @license    Apache License, Version 2.0
