@@ -4,7 +4,7 @@
  *
  * Provides methods useful for composing letters (mail).
  *
- * @version    3.2 (2017-05-09 02:15:00 GMT)
+ * @version    3.3 (2017-05-17 10:55:00 GMT)
  * @author     Peter Kahl <peter.kahl@colossalmind.com>
  * @since      2017
  * @license    Apache License, Version 2.0
@@ -52,7 +52,7 @@ class LetterComposer {
 
   #===================================================================
 
-  private function ValidateLanguage($lang) {
+  private function ValidateLanguage() {
     $available = array(
       'ar',
       'cs',
