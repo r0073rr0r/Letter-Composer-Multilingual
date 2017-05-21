@@ -4,7 +4,7 @@
  *
  * Provides methods useful for composing letters (mail).
  *
- * @version    3.3 (2017-05-17 10:55:00 GMT)
+ * @version    3.4 (2017-05-21 09:25:00 GMT)
  * @author     Peter Kahl <peter.kahl@colossalmind.com>
  * @since      2017
  * @license    Apache License, Version 2.0
@@ -104,6 +104,9 @@ class LetterComposer {
   public function makeSalutation() {
     $this->ValidateLanguage();
     $this->recipientGender = strtoupper($this->recipientGender);
+    if (empty($this->recipientName)) {
+      throw new Exception('Undefined property recipientName');
+    }
     #----------------------------
     if ($this->lang == 'zh-hk') {
       return '尊敬的'.          $this->recipientName .':';
@@ -209,6 +212,9 @@ class LetterComposer {
 
   public function makeValedictionPlain() {
     $this->ValidateLanguage();
+    if (empty($this->senderNamePlain)) {
+      throw new Exception('Undefined property senderNamePlain');
+    }
     #----
     if ($this->lang == 'zh-hk') {
       $str = '此致敬禮，';
@@ -220,9 +226,6 @@ class LetterComposer {
       $str = '敬具，';
     }
     elseif ($this->lang == 'ar') {
-      $str = 'Mit Grüssen,';
-    }
-    elseif ($this->lang == 'ar') {
       $str = 'تفضلوا بقبول فائق التحية والاحترام';
     }
     elseif ($this->lang == 'da') {
@@ -230,6 +233,9 @@ class LetterComposer {
     }
     elseif ($this->lang == 'he') {
       $str = 'בִּבְרָכָה‏';
+    }
+    elseif ($this->lang == 'de') {
+      $str = 'Mit Grüssen,';
     }
     elseif ($this->lang == 'fr') {
       $str = 'Amicalement,';
@@ -265,6 +271,9 @@ class LetterComposer {
 
   public function makeValedictionHtml() {
     $this->ValidateLanguage();
+    if (empty($this->senderNameHtml)) {
+      throw new Exception('Undefined property senderNameHtml');
+    }
     #----
     if ($this->lang == 'zh-hk') {
       $str = '此致敬禮，';
