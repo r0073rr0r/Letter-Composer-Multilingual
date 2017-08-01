@@ -67,6 +67,7 @@ class LetterComposer {
       'nl',
       'pt',
       'ru',
+      'rs',
       'sk',
       'zh-cn',
       'zh-hk',
@@ -159,6 +160,16 @@ class LetterComposer {
           return 'Estimada '.   $this->recipientName .':';
         default:
           return 'Saúde '.      $this->recipientName .':';
+      }
+    }
+     elseif ($this->lang == 'rs') {
+      switch ($this->recipientGender) {
+        case 'M':
+          return 'Poštovani '.   $this->recipientName .':';
+        case 'F':
+          return 'Poštovana '.   $this->recipientName .':';
+        default:
+          return 'Pozdrav '.      $this->recipientName .':';
       }
     }
     #----------------------------
@@ -255,6 +266,9 @@ class LetterComposer {
     elseif ($this->lang == 'ru') {
       $str = 'С уважением,';
     }
+    elseif ($this->lang == 'rs') {
+      $str = 'Sve najbolje,';
+    }
     elseif ($this->lang == 'cs') {
       $str = 'S pozdravem,';
     }
@@ -319,6 +333,9 @@ class LetterComposer {
     }
     elseif ($this->lang == 'sk') {
       $str = 'S pozdravom,';
+    }
+    elseif ($this->lang == 'rs') {
+      $str = 'Sve najbolje,';
     }
     elseif ($this->lang == 'en') {
       $str = 'Best regards,';
